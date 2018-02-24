@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
       if (err) throw err; 
 
       // pick a random quote
-      var randomQuote = Math.floor(Math.random() * results.length) + 1; 
+      var randomQuote = Math.floor(Math.random() * results.length); 
 
       quote = results[randomQuote];
 
@@ -30,13 +30,10 @@ app.get('/', function (req, res) {
         if (err) throw err; 
 
         // pick a random background
-        var randomBackground = Math.floor(Math.random() * bkgnd.length) + 6; 
+        var randomBackground = Math.floor(Math.random() * bkgnd.length); 
         console.log("Random background " + randomBackground);
         background = bkgnd[randomBackground]; 
         console.log("Img: ", background);
-        if (background === undefined){
-          background = 'images/db_imgs/brick.png';
-        } 
 
         // pass the quote and background to the index page
         res.render('pages/index', {
